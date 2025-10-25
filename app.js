@@ -115,9 +115,9 @@ for (const iface of Object.values(interfaces)) {
   }
 }
 
-const port = 3000;
+const port = process.env.PORT || 3000; // ใช้ PORT จาก Environment Variable
 
-app.listen(port, ip, () => {
-  console.log(`✅ Server listening at http://${ip}:${port}`);
+app.listen(port, () => { // Listen บน port 0.0.0.0 (เป็น default บน Cloud)
+  console.log(`✅ Server listening on port ${port}`);
 });
 
